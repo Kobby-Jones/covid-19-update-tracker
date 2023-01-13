@@ -7,7 +7,29 @@ body{
     font-family: orbitron,sans-serif;
 
 }
+.intro-text{
+    margin-top: 50px;
+}
+.search-country{
+    margin-top: 30px;
+}
+.enter-country{
+    margin-top: 60px;
+}
 
-.navbar{
-    /* background-color: aqua; */
+.check-btn{
+    margin-top: 20px;
+}
+.check-btn > button:hover{
+    background-color: cornflowerblue;
+    border: none;
+}
+.covid-19-intro{
+    transition: color 4s;
+    color:chocolate
+}
+.enter-text{
+    color:coral;
+    font-weight: bolder;
+    
 }
