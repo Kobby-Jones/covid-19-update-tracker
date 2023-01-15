@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Anybody&family=Orbitron:wght@900&display=swap');
-body{
+.home-body{
     background: url(https://images.unsplash.com/flagged/photo-1584036561584-b03c19da874c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80);
+    background-size: cover;
+}
+.info-body{
+    background: url(https://images.unsplash.com/photo-1583423230902-b653abc541eb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fGNvdmlkJTIwMTl8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60);
     background-size: cover;
 }
 .navbar-brand{
