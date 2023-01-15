@@ -20,7 +20,7 @@ body{
 .check-btn{
     margin-top: 20px;
 }
-.check-btn > button:hover{
+.check-btn > a > .update-btn:hover{
     background-color: cornflowerblue;
     border: none;
 }
@@ -32,4 +32,21 @@ body{
     color:coral;
     font-weight: bolder;
     
+}
+.country{
+    margin-top: 50px;
+}
+ul{
+    list-style: none;
+    padding-right: 100px;
+}
+.confirm{
+    margin-top: 30px;
+}
+.check-again-button{
+    padding-right: 100px;
+}
+.check-again > a > .check-again-button:hover{
+    background-color: cornflowerblue;
+    border: none;
 }
