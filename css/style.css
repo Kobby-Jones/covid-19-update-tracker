@@ -24,6 +24,9 @@
 .check-btn{
     margin-top: 20px;
 }
+.check-btn > a > .update-btn{
+    width: 100vw;
+}
 .check-btn > a > .update-btn:hover{
     background-color: cornflowerblue;
     border: none;
@@ -49,8 +52,15 @@ ul{
 }
 .check-again-button{
     padding-right: 100px;
+    width: 100vw;
 }
 .check-again > a > .check-again-button:hover{
     background-color: cornflowerblue;
     border: none;
+}
+.developer{
+    margin-top: 240px;
+}
+.developer-2{
+    margin-top: 40px;
 }
