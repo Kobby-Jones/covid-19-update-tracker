@@ -1,13 +1,10 @@
 const table_body = document.querySelector(".table-body");
-const search_button = document.querySelector(".search-button");
-const form_control = document.querySelector(".form-control");
-const back_button = document.querySelector(".back-button");
 
 
 
 
-// Function for TOTAL and ALL COUNTRIES data
-function defaltOnLoad() {
+
+
   // Function to retrieve Total data information
   async function getAll() {
     const request = await fetch("https://disease.sh/v3/covid-19/all");
@@ -29,7 +26,8 @@ function defaltOnLoad() {
     `;
   }
   // Call the getAll() function
-  getAll();
+getAll();
+  
 
   // Function to retrieve data country by country
   async function getCountries() {
@@ -54,44 +52,9 @@ function defaltOnLoad() {
     }
   }
   // Call the getCountries() function
-  getCountries();
-}
-defaltOnLoad();
+getCountries();
 
 
 
 
 
-
-
-// Function for retrieving just one country
-async function getSingleCountry() {
-  const request = await fetch(`https://disease.sh/v3/covid-19/countries/${form_control.value}`);
-  const data = await request.json();
-  table_body.innerHTML = `
-    <tr>       
-        <td>${data.country}</td>
-        <td>${data.population}</td>
-        <td>${data.cases}</td>
-        <td>${data.todayCases}</td>
-        <td>${data.deaths}</td>
-        <td>${data.todayDeaths}</td>
-        <td>${data.recovered}</td>
-        <td>${data.todayRecovered}</td>
-        <td>${data.active}</td>
-        <td>${data.critical}</td>
-        <td>${data.tests}</td> 
-    </tr>
-    `;
-}
-
-// Add Event listener to the search button
-
-search_button.addEventListener('click', function () {
-    getSingleCountry();
-    back_button.hidden = false;
-})
-back_button.addEventListener('click', function () {
-    defaltOnLoad();
-    
-});
