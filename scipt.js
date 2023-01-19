@@ -8,7 +8,7 @@ async function getCovidApi() {
     console.log(json)
     table_body.innerHTML = `
     <tr>
-                <th scope="row">1</th>
+                
                 <td>All</td>
                 <td>${json.population}</td>
                 <td>${json.cases}</td>
@@ -27,17 +27,18 @@ async function getCovidApi() {
 
 }
 getCovidApi();
-search_button.addEventListener('click', function () {
-    getCountry();
-})
-
+search_button.addEventListener("click", function () {
+  console.log(form_control.value);
+  getCountry();
+});
 async function getCountry() {
-  const request = await fetch(`https://disease.sh/v3/covid-19/countries/${form_control.value}`);
+    const countries = form_control.value
+  const request = await fetch("https://disease.sh/v3/covid-19/countries/" + countries);
   const data = await request.json();
-  console.log(data);
-  table_body.innerHTML = `
+    console.log(data);
+  table_body.innerHTML += `
     <tr>
-                <th scope="row">1</th>
+                
                 <td>${data.country}</td>
                 <td>${data.population}</td>
                 <td>${data.cases}</td>
@@ -49,8 +50,8 @@ async function getCountry() {
                 <td>${data.active}</td>
                 <td>${data.critical}</td>
                 <td>${data.tests}</td>
-                
-                
             </tr>
     `;
 }
+
+
