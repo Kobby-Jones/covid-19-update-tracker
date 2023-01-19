@@ -1,6 +1,7 @@
 const table_body = document.querySelector(".table-body");
 const search_button = document.querySelector(".search-button");
 const form_control = document.querySelector(".form-control");
+const back_button = document.querySelector(".back-button");
 
 
 
@@ -88,4 +89,9 @@ async function getSingleCountry() {
 
 search_button.addEventListener('click', function () {
     getSingleCountry();
+    back_button.hidden = false;
 })
+back_button.addEventListener('click', function () {
+    defaltOnLoad();
+    back_button.hidden = true;
+});
