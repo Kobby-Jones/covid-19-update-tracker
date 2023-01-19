@@ -2,8 +2,13 @@ const table_body = document.querySelector(".table-body");
 const search_button = document.querySelector(".search-button");
 const form_control = document.querySelector(".form-control");
 
-// Function to retrieve Total data information
-async function getAll() {
+
+
+
+// Function for TOTAL and ALL COUNTRIES data
+function defaltOnLoad() {
+  // Function to retrieve Total data information
+  async function getAll() {
     const request = await fetch("https://disease.sh/v3/covid-19/all");
     const data = await request.json();
     table_body.innerHTML = `
@@ -21,16 +26,16 @@ async function getAll() {
         <td class="table-warning fw-bold">${data.tests}</td> 
     </tr>
     `;
-}
-// Call the getAll() function
-getAll();
+  }
+  // Call the getAll() function
+  getAll();
 
-// Function to retrieve data country by country
-async function getCountries() {
-  const request = await fetch("https://disease.sh/v3/covid-19/countries");
-  const data = await request.json();
-  for (let i = 0; i < data.length; i++) {
-    table_body.innerHTML += `
+  // Function to retrieve data country by country
+  async function getCountries() {
+    const request = await fetch("https://disease.sh/v3/covid-19/countries");
+    const data = await request.json();
+    for (let i = 0; i < data.length; i++) {
+      table_body.innerHTML += `
     <tr>     
         <td>${data[i].country}</td>
         <td>${data[i].population}</td>
@@ -45,10 +50,42 @@ async function getCountries() {
         <td>${data[i].tests}</td>
     </tr>
     `;
+    }
   }
+  // Call the getCountries() function
+  getCountries();
 }
-// Call the getCountries() function
-getCountries()
+defaltOnLoad();
+
+
+
+
+
 
 
 // Function for retrieving just one country
+async function getSingleCountry() {
+  const request = await fetch(`https://disease.sh/v3/covid-19/countries/${form_control.value}`);
+  const data = await request.json();
+  table_body.innerHTML = `
+    <tr>       
+        <td>${data.country}</td>
+        <td>${data.population}</td>
+        <td>${data.cases}</td>
+        <td>${data.todayCases}</td>
+        <td>${data.deaths}</td>
+        <td>${data.todayDeaths}</td>
+        <td>${data.recovered}</td>
+        <td>${data.todayRecovered}</td>
+        <td>${data.active}</td>
+        <td>${data.critical}</td>
+        <td>${data.tests}</td> 
+    </tr>
+    `;
+}
+
+// Add Event listener to the search button
+
+search_button.addEventListener('click', function () {
+    getSingleCountry();
+})
