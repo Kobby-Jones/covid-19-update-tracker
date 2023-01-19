@@ -93,5 +93,5 @@ search_button.addEventListener('click', function () {
 })
 back_button.addEventListener('click', function () {
     defaltOnLoad();
-    back_button.hidden = true;
+    
 });
