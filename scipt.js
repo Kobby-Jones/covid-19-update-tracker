@@ -1,9 +1,5 @@
-const table_body = document.querySelector(".table-body");
-
-
-
-
-
+const table_body = document.querySelector("#table-body");
+const search = document.getElementById('search');
 
   // Function to retrieve Total data information
   async function getAll() {
@@ -35,8 +31,8 @@ getAll();
     const data = await request.json();
     for (let i = 0; i < data.length; i++) {
       table_body.innerHTML += `
-    <tr>     
-        <td>${data[i].country}</td>
+    <tr class = "country">     
+        <td >${data[i].country}</td>
         <td>${data[i].population}</td>
         <td>${data[i].cases}</td>
         <td>${data[i].todayCases}</td>
@@ -49,15 +45,23 @@ getAll();
         <td>${data[i].tests}</td>
     </tr>
     `;
+      
     }
   }
   // Call the getCountries() function
 getCountries();
 
-
-fetch("https://dummyjson.com/carts")
-  .then((res) => res.json())
-  .then(console.log);
-
+// Filter/Search table for a country
+search.addEventListener('keyup', function () {
+  const filter = search.value.toLowerCase();
+  const countryList = document.querySelectorAll('.country')
+  countryList.forEach(item => {
+    if (item.textContent.toLowerCase().includes(filter.toLowerCase())) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none'
+    }
+  })
+})
 
 
