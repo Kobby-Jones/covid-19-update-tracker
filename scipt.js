@@ -7,7 +7,7 @@ const search = document.getElementById('search');
     const data = await request.json();
     table_body.innerHTML = `
     <tr>       
-        <td class="fw-bolder text-success table-warning">Total</td>
+        <td class="fw-bolder text-success table-warning">World Total</td>
         <td class="table-warning fw-bold">${data.population}</td>
         <td class="table-warning fw-bold">${data.cases}</td>
         <td class="table-warning fw-bold">${data.todayCases}</td>
