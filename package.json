@@ -1,0 +1,23 @@
+{
+  "name": "covid-19-update-tracker",
+  "version": "1.0.0",
+  "description": "A web application that accesses the covid-19 api and retrieve data of every country\r and their related covid-19 history. The pages updates anytime there is a new case reported.",
+  "main": "scipt.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kobby-Jones/covid-19-update-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kobby-Jones/covid-19-update-tracker/issues"
+  },
+  "homepage": "https://github.com/Kobby-Jones/covid-19-update-tracker#readme",
+  "dependencies": {
+    "terser": "^5.16.5"
+  }
+}
