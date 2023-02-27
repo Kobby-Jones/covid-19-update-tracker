@@ -2,7 +2,7 @@ const table_body = document.querySelector("#table-body");
 const search = document.getElementById('search');
 
 // Create a function for the world total row
-function tableBody(data) {
+function tableBody(data, position) {
   let tr = document.createElement("tr");
   let td1 = document.createElement("td");
   td1.classList.add("fw-bolder", "text-success", "table-warning")
@@ -48,19 +48,25 @@ function tableBody(data) {
   td11.classList.add("table-warning", "fw-bold");
   td11.innerText = data.tests;
   tr.appendChild(td11);
-  table_body.appendChild(tr);
+
+   const tableRows = table_body.children;
+   if (position < tableRows.length) {
+     table_body.insertBefore(tr, tableRows[position]);
+   } else {
+     table_body.appendChild(tr);
+   }
 }
   // Function to retrieve Total data information
   async function getAll() {
     const request = await fetch("https://disease.sh/v3/covid-19/all");
     const data = await request.json();
-    tableBody(data);
+    tableBody(data, 0);
   }
   // Call the getAll() function
 getAll();
   
 // Create another function for the countries rows
-function countriesData(countryData) {
+function countriesData(countryData, position) {
   let tr = document.createElement("tr");
   tr.classList.add("country")
    let td1 = document.createElement("td");
@@ -95,16 +101,26 @@ function countriesData(countryData) {
    tr.appendChild(td10);
    let td11 = document.createElement("td");
    td11.innerText = countryData.tests;
-   tr.appendChild(td11);
-   table_body.appendChild(tr);
+  tr.appendChild(td11);
+  
+    const tableRows = table_body.children;
+    if (position < tableRows.length) {
+      table_body.insertBefore(tr, tableRows[position]);
+    } else {
+      table_body.appendChild(tr);
+    }
 }
+
+// Make the two http requests
+const request1 = fetch("https://disease.sh/v3/covid-19/all");
+const request2 = fetch("https://disease.sh/v3/covid-19/countries");
 
   // Function to retrieve data country by country
   async function getCountries() {
     const request = await fetch("https://disease.sh/v3/covid-19/countries");
     const countryData = await request.json();
     countryData.forEach(data => {
-      countriesData(data);
+      countriesData(data,1);
    })
   }
   // Call the getCountries() function
