@@ -110,11 +110,6 @@ function countriesData(countryData, position) {
       table_body.appendChild(tr);
     }
 }
-
-// Make the two http requests
-const request1 = fetch("https://disease.sh/v3/covid-19/all");
-const request2 = fetch("https://disease.sh/v3/covid-19/countries");
-
   // Function to retrieve data country by country
   async function getCountries() {
     const request = await fetch("https://disease.sh/v3/covid-19/countries");
