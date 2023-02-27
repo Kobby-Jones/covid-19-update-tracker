@@ -1,25 +1,63 @@
 const table_body = document.querySelector("#table-body");
 const search = document.getElementById('search');
 
+
+function tableBody(data) {
+  // Create the tr element
+  let tr = document.createElement("tr");
+  let td1 = document.createElement("td");
+  td1.classList.add("fw-bolder", "text-success", "table-warning")
+  td1.innerText = "World Total";
+  tr.appendChild(td1);
+  let td2 = document.createElement("td");
+  td2.classList.add("table-warning", "fw-bold");
+  td2.innerText = data.population;
+  tr.appendChild(td2);
+  let td3 = document.createElement("td");
+  td3.classList.add("table-warning", "fw-bold");
+  td3.innerText = data.cases;
+  tr.appendChild(td3);
+  let td4 = document.createElement("td");
+  td4.classList.add("table-warning", "fw-bold");
+  td4.innerText = data.todayCases;
+  tr.appendChild(td4);
+  let td5 = document.createElement("td");
+  td5.classList.add("table-warning", "fw-bold");
+  td5.innerText = data.deaths;
+  tr.appendChild(td5);
+  let td6 = document.createElement("td");
+  td6.classList.add("table-warning", "fw-bold");
+  td6.innerText = data.todayDeaths;
+  tr.appendChild(td6);
+  let td7 = document.createElement("td");
+  td7.classList.add("table-warning", "fw-bold");
+  td7.innerText = data.recovered;
+  tr.appendChild(td7);
+  let td8 = document.createElement("td");
+  td8.classList.add("table-warning", "fw-bold");
+  td8.innerText = data.todayRecovered;
+  tr.appendChild(td8);
+  let td9 = document.createElement("td");
+  td9.classList.add("table-warning", "fw-bold");
+  td9.innerText = data.active;
+  tr.appendChild(td9);
+  let td10 = document.createElement("td");
+  td10.classList.add("table-warning", "fw-bold");
+  td10.innerText = data.critical;
+  tr.appendChild(td10);
+  let td11 = document.createElement("td");
+  td11.classList.add("table-warning", "fw-bold");
+  td11.innerText = data.tests;
+  tr.appendChild(td11);
+  table_body.appendChild(tr);
+
+
+}
   // Function to retrieve Total data information
   async function getAll() {
     const request = await fetch("https://disease.sh/v3/covid-19/all");
     const data = await request.json();
-    table_body.innerHTML = `
-    <tr>       
-        <td class="fw-bolder text-success table-warning">World Total</td>
-        <td class="table-warning fw-bold">${data.population}</td>
-        <td class="table-warning fw-bold">${data.cases}</td>
-        <td class="table-warning fw-bold">${data.todayCases}</td>
-        <td class="table-warning fw-bold">${data.deaths}</td>
-        <td class="table-warning fw-bold">${data.todayDeaths}</td>
-        <td class="table-warning fw-bold">${data.recovered}</td>
-        <td class="table-warning fw-bold">${data.todayRecovered}</td>
-        <td class="table-warning fw-bold">${data.active}</td>
-        <td class="table-warning fw-bold">${data.critical}</td>
-        <td class="table-warning fw-bold">${data.tests}</td> 
-    </tr>
-    `;
+    tableBody(data);
   }
   // Call the getAll() function
 getAll();
